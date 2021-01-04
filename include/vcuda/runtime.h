@@ -34,6 +34,8 @@ namespace vcuda {
         CUresult malloc(void **, std::size_t);
         CUresult memcpy(void *, const void *, std::size_t, enum cudaMemcpyKind);
         CUresult memset(void *, const int, std::size_t);
+        CUresult streamCreate(CUstream *);
+        CUresult streamDestroy(CUstream);
         CUresult streamSynchronize(CUstream);
 
       private:
@@ -60,6 +62,8 @@ VCUDA_RUNTIME_EXPORT CUresult cudaMalloc(void **dptr, std::size_t size);
 VCUDA_RUNTIME_EXPORT CUresult cudaMemcpy(void *dst, const void *src, std::size_t count,
                                  enum cudaMemcpyKind kind);
 VCUDA_RUNTIME_EXPORT CUresult cudaMemset(void *dst, const int value, std::size_t count);
+VCUDA_RUNTIME_EXPORT CUresult cudaStreamCreate(CUstream *pstream);
+VCUDA_RUNTIME_EXPORT CUresult cudaStreamDestroy(CUstream hstream);
 VCUDA_RUNTIME_EXPORT CUresult cudaStreamSynchronize(CUstream hstream);
 
 #ifdef __cplusplus

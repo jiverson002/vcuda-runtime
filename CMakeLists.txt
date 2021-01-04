@@ -28,7 +28,8 @@ add_library(${Library_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_sources(${PROJECT_NAME}
   PRIVATE src/runtime/devicesynchronize.cxx src/runtime/free.cxx
           src/runtime/instance.cxx src/runtime/malloc.cxx src/runtime/memcpy.cxx
-          src/runtime/memset.cxx src/runtime/streamsynchronize.cxx
+          src/runtime/memset.cxx src/runtime/streamcreate.cxx
+          src/runtime/streamdestroy.cxx src/runtime/streamsynchronize.cxx
           # these are only included below so that they appear when using IDEs
           include/vcuda/runtime.h)
 
