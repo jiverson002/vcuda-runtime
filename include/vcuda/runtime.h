@@ -37,6 +37,7 @@ namespace vcuda {
         CUresult streamCreate(CUstream *);
         CUresult streamDestroy(CUstream);
         CUresult streamSynchronize(CUstream);
+        CUresult version(int *);
 
       private:
         std::ostream &log; /*!< ostream for logging */
@@ -57,11 +58,13 @@ extern "C" {
 #endif
 
 VCUDA_RUNTIME_EXPORT CUresult cudaDeviceSynchronize(void);
+VCUDA_RUNTIME_EXPORT CUresult cudaDriverGetVersion(int *);
 VCUDA_RUNTIME_EXPORT CUresult cudaFree(void *dptr);
 VCUDA_RUNTIME_EXPORT CUresult cudaMalloc(void **dptr, std::size_t size);
 VCUDA_RUNTIME_EXPORT CUresult cudaMemcpy(void *dst, const void *src, std::size_t count,
                                  enum cudaMemcpyKind kind);
 VCUDA_RUNTIME_EXPORT CUresult cudaMemset(void *dst, const int value, std::size_t count);
+VCUDA_RUNTIME_EXPORT CUresult cudaRuntimeGetVersion(int *);
 VCUDA_RUNTIME_EXPORT CUresult cudaStreamCreate(CUstream *pstream);
 VCUDA_RUNTIME_EXPORT CUresult cudaStreamDestroy(CUstream hstream);
 VCUDA_RUNTIME_EXPORT CUresult cudaStreamSynchronize(CUstream hstream);

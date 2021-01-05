@@ -27,6 +27,7 @@ add_library(${Library_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME}
   PRIVATE src/runtime/devicesynchronize.cxx src/runtime/free.cxx
+          src/runtime/getversion.cxx
           src/runtime/instance.cxx src/runtime/malloc.cxx src/runtime/memcpy.cxx
           src/runtime/memset.cxx src/runtime/streamcreate.cxx
           src/runtime/streamdestroy.cxx src/runtime/streamsynchronize.cxx
@@ -37,7 +38,8 @@ target_include_directories(${PROJECT_NAME}
   PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
           $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
           $<INSTALL_INTERFACE:include>
-  PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/include>)
+  PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/include>
+          $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src/include>)
 
 target_link_libraries(${PROJECT_NAME}
   PUBLIC Threads::Threads $<$<BOOL:${LIBRT}>:${LIBRT}>)
